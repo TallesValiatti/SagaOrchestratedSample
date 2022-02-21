@@ -23,4 +23,20 @@ namespace Order.Microservice.Domain.Commands.Output
             return new CommandResult<T>(false, messages, default);
         }
     }
+
+    public class CommandResult : CommandResult<Object>
+    {
+        public CommandResult(bool isSuccess, IEnumerable<string> messages, object? value) : base(isSuccess, messages, value)
+        {}
+       
+        public static CommandResult CreateSuccessedResult(Guid value)
+        {
+            return new CommandResult(true, new List<string>(), new {Id = value});
+        }
+
+        new public static CommandResult CreateFailedResult(IEnumerable<string> messages)
+        {
+            return new CommandResult(false, messages, default);
+        }
+    }
 }

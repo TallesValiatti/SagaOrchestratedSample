@@ -7,8 +7,8 @@ namespace Order.Microservice.Domain.Commands.Input
     public class CreateItemCommand : Notifiable<Notification>, 
                                       IRequest<CommandResult<Guid>>
     {
-        public Guid ItemId { get; set; }
-        public float Value { get; set; }
+        public Guid ItemId { get; private set; }
+        public float Value { get; private set; }
         public CreateItemCommand(float value, Guid itemId)
         {
             Value = value;

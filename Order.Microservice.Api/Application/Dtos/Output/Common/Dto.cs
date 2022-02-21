@@ -1,4 +1,4 @@
-namespace Order.Microservice.Api.Application.Dtos.Common
+namespace Order.Microservice.Api.Application.Dtos.Output.Common
 {
     public abstract class Dto
     {

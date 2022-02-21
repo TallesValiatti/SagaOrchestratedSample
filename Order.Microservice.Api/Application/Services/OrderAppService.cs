@@ -4,7 +4,8 @@ using Order.Microservice.Domain.Interfaces.Infra;
 using Order.Microservice.Domain.Commands.Output;
 using Order.Microservice.Domain.Commands.Input;
 using AutoMapper;
-using Order.Microservice.Api.Application.Dtos;
+using Order.Microservice.Api.Application.Dtos.Output;
+using Order.Microservice.Api.Application.Dtos.Input;
 
 namespace Order.Microservice.Api.Application.Services
 {
@@ -25,8 +26,9 @@ namespace Order.Microservice.Api.Application.Services
         {
             return _mapper.Map<IEnumerable<OrderDto>>(await _orderRepository.GetAllAsync());
         }
-        public async Task<CommandResult<Guid>> CreateAsync(CreateOrderCommand command)
+        public async Task<CommandResult> CreateAsync(CreateOrderDto dto)
         {
+            var command = _mapper.Map<CreateOrderCommand>(dto);
             return await _mediator.Send(command);
         }
     }

@@ -7,7 +7,17 @@ namespace Order.Microservice.Api.Controllers;
 [Route("[controller]")]
 public abstract class BaseController : ControllerBase
 {
-    public IActionResult ApiResponse<T>(CommandResult<T> commandResult)
+    internal IActionResult ApiResponse<T>(CommandResult<T> commandResult)
+    {
+       return commandResult.IsSuccess ? Ok(commandResult.Value) : BadRequest(commandResult.Messages);
+    }
+
+    internal IActionResult ApiResponse(CommandResult commandResult)
+    {
+        return this.ApiResponseFormatResponse<object>(commandResult);
+    }
+
+    internal IActionResult ApiResponseFormatResponse<T>(CommandResult<T> commandResult)
     {
         return commandResult.IsSuccess ? Ok(commandResult.Value) : BadRequest(commandResult.Messages);
     }

@@ -1,7 +1,7 @@
-using Order.Microservice.Api.Application.Dtos.Common;
+using Order.Microservice.Api.Application.Dtos.Output.Common;
 using Order.Microservice.Domain.Enums;
 
-namespace Order.Microservice.Api.Application.Dtos
+namespace Order.Microservice.Api.Application.Dtos.Output
 {
     public class OrderDto : Dto
     {

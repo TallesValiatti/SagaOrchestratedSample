@@ -1,8 +1,6 @@
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Order.Microservice.Api.Application.Dtos.Input;
 using Order.Microservice.Api.Application.Interfaces;
-using Order.Microservice.Domain.Commands.Input;
-using Order.Microservice.Domain.Interfaces.Infra;
 
 namespace Order.Microservice.Api.Controllers;
 
@@ -17,9 +15,9 @@ public class OrderController : BaseController
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(CreateOrderCommand command)
+    public async Task<IActionResult> Post(CreateOrderDto dto)
     {
-        return ApiResponse<Guid>(await _orderAppService.CreateAsync(command));
+        return ApiResponse(await _orderAppService.CreateAsync(dto));
     }
 
     [HttpGet]

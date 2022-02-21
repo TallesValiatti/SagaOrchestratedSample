@@ -5,7 +5,7 @@ using Order.Microservice.Domain.Interfaces.Infra;
 
 namespace Order.Microservice.Domain.Handlers
 {
-    public class OrderCommandHandler : IRequestHandler<CreateOrderCommand, CommandResult<Guid>>
+    public class OrderCommandHandler : IRequestHandler<CreateOrderCommand, CommandResult>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
@@ -14,10 +14,10 @@ namespace Order.Microservice.Domain.Handlers
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
-        public async Task<CommandResult<Guid>> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
+        public async Task<CommandResult> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
         {
             if(!command.IsValid)
-                return CommandResult<Guid>.CreateFailedResult(command.Notifications.Select(x => x.Message));
+                return CommandResult.CreateFailedResult(command.Notifications.Select(x => x.Message));
             
             _unitOfWork.BeginTransaction();
             
@@ -31,10 +31,10 @@ namespace Order.Microservice.Domain.Handlers
             catch (System.Exception)
             {
                 _unitOfWork.Rollback();
-                return CommandResult<Guid>.CreateFailedResult(new string[] {"Error while saving Order"});
+                return CommandResult.CreateFailedResult(new string[] {"Error while saving Order"});
             }
            
-            return CommandResult<Guid>.CreateSuccessedResult(order.Id);
+            return CommandResult.CreateSuccessedResult(order.Id);
         }
     }
 }

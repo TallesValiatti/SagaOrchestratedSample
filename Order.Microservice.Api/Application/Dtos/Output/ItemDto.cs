@@ -1,6 +1,6 @@
-using Order.Microservice.Api.Application.Dtos.Common;
+using Order.Microservice.Api.Application.Dtos.Output.Common;
 
-namespace Order.Microservice.Api.Application.Dtos
+namespace Order.Microservice.Api.Application.Dtos.Output
 {
     public class ItemDto : Dto
     {

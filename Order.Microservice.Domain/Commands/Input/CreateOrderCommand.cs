@@ -5,7 +5,7 @@ using Order.Microservice.Domain.Commands.Output;
 namespace Order.Microservice.Domain.Commands.Input
 {
     public class CreateOrderCommand : Notifiable<Notification>, 
-                                      IRequest<CommandResult<Guid>>
+                                      IRequest<CommandResult>
     {
         public IEnumerable<CreateItemCommand>? Itens { get; private set; }
         public CreateOrderCommand(IEnumerable<CreateItemCommand> itens)
