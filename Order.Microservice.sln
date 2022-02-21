@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Microservice.Infra", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Microservice.Domain", "Order.Microservice.Domain\Order.Microservice.Domain.csproj", "{50D41E90-4AF8-4579-B11C-76CF2D98C2CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Microservice.Api", "Order.Microservice.Api\Order.Microservice.Api.csproj", "{3314E994-CE6F-4358-8459-5649130AF23B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{50D41E90-4AF8-4579-B11C-76CF2D98C2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50D41E90-4AF8-4579-B11C-76CF2D98C2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50D41E90-4AF8-4579-B11C-76CF2D98C2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3314E994-CE6F-4358-8459-5649130AF23B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3314E994-CE6F-4358-8459-5649130AF23B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3314E994-CE6F-4358-8459-5649130AF23B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3314E994-CE6F-4358-8459-5649130AF23B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

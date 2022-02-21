@@ -55,7 +55,7 @@ namespace Order.Microservice.Domain.Entities
 
             var itens = command.Itens.Select( x => 
             {
-                return new Item(Guid.NewGuid(), x.Value, orderId, x.Id);
+                return new Item(Guid.NewGuid(), x.Value, orderId, x.ItemId);
             }); 
 
             var order = new Order(orderId,

@@ -1,4 +1,6 @@
 using MediatR;
+using Order.Microservice.Api.Application.Interfaces;
+using Order.Microservice.Api.Application.Services;
 using Order.Microservice.Domain.Entities.Common;
 using Order.Microservice.Domain.Interfaces.Infra;
 using Order.Microservice.Infra.Contexts;
@@ -9,7 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<AppDbContext>(x => new AppDbContext(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+builder.Services.AddTransient<IOrderAppService, OrderAppService>();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddMediatR(typeof(Entity));
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
